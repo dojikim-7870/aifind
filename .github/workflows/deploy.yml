@@ -45,7 +45,7 @@ jobs:
           # 2. CNAME 도메인 설정 파일 생성
           echo "aifind.kr" > .output/public/CNAME
           
-          # 3. 루트 및 빌드 폴더 내의 index.html을 배포 위치로 확실하게 복사
+          # 3. 루트 및 빌드 폴더 내의 index.html을 배포 위치로 복사
           if [ -f ./index.html ]; then
             cp ./index.html .output/public/index.html
           elif [ -f .output/client/index.html ]; then
@@ -71,4 +71,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v44
+        uses: actions/deploy-pages@v4
