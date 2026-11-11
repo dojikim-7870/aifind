@@ -37,22 +37,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare GitHub Pages output
+      - name: Verify prerendered homepage
         run: |
-          mkdir -p .output/public
-          echo "aifind.kr" > .output/public/CNAME
-
-          if [ -f .output/client/index.html ]; then
-            cp .output/client/index.html .output/public/index.html
-          elif [ -f .output/public/index.html ]; then
-            echo "Using generated .output/public/index.html"
-          else
-            echo "ERROR: Build did not generate a homepage. Refusing to publish the repository root index.html."
+          if [ ! -s .output/public/index.html ]; then
+            echo "ERROR: Prerendered homepage .output/public/index.html is missing or empty."
+            echo "Refusing to publish a client shell or repository-root index.html."
             exit 1
           fi
 
-          cp .output/public/index.html .output/public/404.html
-          ls -la .output/public
+          echo "Preserving the prerendered homepage and route files."
+          echo "aifind.kr" > .output/public/CNAME
+          find .output/public -maxdepth 3 -type f | sort | head -200
         shell: bash
 
       - name: Upload artifact
