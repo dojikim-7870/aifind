@@ -37,12 +37,17 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare static files for GitHub Pages
+      - name: Configure SPA Routing & CNAME
         run: |
+          # 1. 커스텀 도메인 CNAME 파일 생성
           printf "aifind.kr" > .output/public/CNAME
+          
+          # 2. SPA 라우팅을 위해 index.html을 404.html로 복사 (모든 404 요청을 앱으로 라우팅)
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           fi
+          
+          echo "=== Build output files ==="
           ls -la .output/public
         shell: bash
 
