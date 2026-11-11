@@ -37,12 +37,13 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Add CNAME and 404.html for routing
+      - name: Prepare static files for GitHub Pages
         run: |
-          echo "aifind.kr" > .output/public/CNAME
+          printf "aifind.kr" > .output/public/CNAME
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           fi
+          ls -la .output/public
         shell: bash
 
       - name: Upload artifact
