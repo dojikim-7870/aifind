@@ -39,7 +39,7 @@ jobs:
 
       - name: Configure SPA Routing & CNAME
         run: |
-          # 1. 빌드 결과물 public 폴더가 없다면 생성
+          # 1. 빌드 결과물 public 폴더 생성
           mkdir -p .output/public
           
           # 2. 커스텀 도메인 CNAME 파일 생성
@@ -50,13 +50,13 @@ jobs:
             cp ./index.html .output/public/index.html
           fi
           
-          # 4. SPA 라우팅을 위해 index.html을 404.html로 복사
+          # 4. SPA 라우팅을 위해 index.html을 404.html로 복사 (fi로 올바르게 닫음)
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           else
             echo "ERROR: index.html not found anywhere!"
             exit 1
-          end
+          fi
           
           echo "=== Final .output/public files ==="
           ls -la .output/public
@@ -69,4 +69,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v4s@v4
