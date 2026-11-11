@@ -37,19 +37,22 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Prepare Public Directory
+      - name: Prepare Deployment Artifacts
         run: |
+          # 1. 배포 대상 public 폴더 생성
           mkdir -p .output/public
-          printf "aifind.kr" > .output/public/CNAME
           
-          # 빌드 결과물 중 index.html을 .output/public으로 안전하게 복사
+          # 2. CNAME 도메인 설정 파일 생성
+          echo "aifind.kr" > .output/public/CNAME
+          
+          # 3. 루트 및 빌드 폴더 내의 index.html을 배포 위치로 확실하게 복사
           if [ -f ./index.html ]; then
             cp ./index.html .output/public/index.html
           elif [ -f .output/client/index.html ]; then
             cp .output/client/index.html .output/public/index.html
           fi
           
-          # SPA 라우팅 폴백을 위한 404.html 생성
+          # 4. SPA 라우팅을 위한 404.html 생성
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           else
@@ -57,7 +60,7 @@ jobs:
             exit 1
           fi
           
-          echo "=== Final files in .output/public ==="
+          echo "=== Final deployment directory contents ==="
           ls -la .output/public
         shell: bash
 
@@ -68,4 +71,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v44
