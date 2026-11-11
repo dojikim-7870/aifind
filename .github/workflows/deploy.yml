@@ -39,25 +39,24 @@ jobs:
 
       - name: Configure SPA Routing & CNAME
         run: |
-          # 1. 빌드 결과물 디렉토리 구조 전체 출력 (디버깅용)
-          echo "=== Full build directory structure ==="
-          find . -name "*.html"
+          # 1. 빌드 결과물 public 폴더가 없다면 생성
+          mkdir -p .output/public
           
           # 2. 커스텀 도메인 CNAME 파일 생성
           printf "aifind.kr" > .output/public/CNAME
           
-          # 3. 만약 index.html이 .output/client 등에 있다면 .output/public으로 복사
-          if [ -f .output/client/index.html ]; then
-            cp .output/client/index.html .output/public/index.html
+          # 3. 루트에 생성된 index.html을 .output/public으로 복사
+          if [ -f ./index.html ]; then
+            cp ./index.html .output/public/index.html
           fi
           
           # 4. SPA 라우팅을 위해 index.html을 404.html로 복사
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           else
-            echo "ERROR: index.html not found in public folder!"
+            echo "ERROR: index.html not found anywhere!"
             exit 1
-          fi
+          end
           
           echo "=== Final .output/public files ==="
           ls -la .output/public
