@@ -37,28 +37,27 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure SPA Routing & CNAME
+      - name: Prepare Public Directory
         run: |
-          # 1. 빌드 결과물 public 폴더 생성
           mkdir -p .output/public
-          
-          # 2. 커스텀 도메인 CNAME 파일 생성
           printf "aifind.kr" > .output/public/CNAME
           
-          # 3. 루트에 생성된 index.html을 .output/public으로 복사
+          # 빌드 결과물 중 index.html을 .output/public으로 안전하게 복사
           if [ -f ./index.html ]; then
             cp ./index.html .output/public/index.html
+          elif [ -f .output/client/index.html ]; then
+            cp .output/client/index.html .output/public/index.html
           fi
           
-          # 4. SPA 라우팅을 위해 index.html을 404.html로 복사
+          # SPA 라우팅 폴백을 위한 404.html 생성
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           else
-            echo "ERROR: index.html not found anywhere!"
+            echo "ERROR: index.html not found!"
             exit 1
           fi
           
-          echo "=== Final .output/public files ==="
+          echo "=== Final files in .output/public ==="
           ls -la .output/public
         shell: bash
 
