@@ -50,7 +50,7 @@ jobs:
             cp ./index.html .output/public/index.html
           fi
           
-          # 4. SPA 라우팅을 위해 index.html을 404.html로 복사 (fi로 올바르게 닫음)
+          # 4. SPA 라우팅을 위해 index.html을 404.html로 복사
           if [ -f .output/public/index.html ]; then
             cp .output/public/index.html .output/public/404.html
           else
@@ -69,4 +69,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4s@v4
+        uses: actions/deploy-pages@v4
