@@ -6,8 +6,8 @@ export default defineConfig({
     server: {
       entry: "server",
     },
-    // Prerender only the main public routes. Do not crawl query-string links:
-    // search/filter combinations can otherwise create thousands of pages and exhaust memory.
+    // Prerender only the main page and known top-level routes.
+    // Crawling every search/filter link caused an unbounded build and memory exhaustion.
     prerender: {
       enabled: true,
       crawlLinks: false,
@@ -22,9 +22,9 @@ export default defineConfig({
         "/guides",
         "/about",
         "/contact",
+        "/favorites",
         "/privacy",
         "/terms",
-        "/favorites",
       ],
     },
   },
