@@ -6,10 +6,26 @@ export default defineConfig({
     server: {
       entry: "server",
     },
-    // Generate static HTML so GitHub Pages can serve the homepage without a server.
+    // Prerender only the main public routes. Do not crawl query-string links:
+    // search/filter combinations can otherwise create thousands of pages and exhaust memory.
     prerender: {
       enabled: true,
-      crawlLinks: true,
+      crawlLinks: false,
+      routes: [
+        "/",
+        "/tools",
+        "/categories",
+        "/popular",
+        "/new",
+        "/free-ai",
+        "/compare",
+        "/guides",
+        "/about",
+        "/contact",
+        "/privacy",
+        "/terms",
+        "/favorites",
+      ],
     },
   },
 });
