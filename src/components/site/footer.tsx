@@ -19,7 +19,14 @@ export function Footer() {
               <div className="text-lg font-extrabold">AIAtlas.kr</div>
               <p className="mt-1 text-sm text-muted-foreground">Discover, compare, and choose the right AI tools.</p>
             </div>
-            <a href="/#top" className="text-sm text-brand hover:underline">한국어 홈페이지</a>
+            <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+              <a href="/en/tools" className="text-brand hover:underline">Find AI Tools</a>
+              <a href="/en/categories" className="text-brand hover:underline">Categories</a>
+              <a href="/en/compare" className="text-brand hover:underline">Compare</a>
+              <a href="/en/guides" className="text-brand hover:underline">Guides</a>
+              <a href="/en/contact" className="text-brand hover:underline">Contact</a>
+              <a href="/#top" className="text-brand hover:underline">한국어 홈페이지</a>
+            </nav>
           </div>
           <p className="mt-8 border-t pt-5 text-xs leading-relaxed text-muted-foreground">Information is provided for reference. Features, availability, and pricing may change. Please confirm the latest details on each provider's official website.</p>
           <p className="mt-2 text-xs text-muted-foreground">© {new Date().getFullYear()} AIAtlas.kr</p>

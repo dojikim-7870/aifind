@@ -86,9 +86,10 @@ function EnglishHome() {
           <div className="mt-4 flex flex-wrap gap-1.5">
             {tool.categories.slice(0, 2).map((slug) => <span key={slug} className="rounded-full bg-brand-soft px-2.5 py-1 text-xs text-brand">{categoryLabels[slug] ?? slug}</span>)}
           </div>
-          <a href={tool.website} target="_blank" rel="noreferrer noopener" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">
-            Visit official website <ExternalLink className="size-4" />
-          </a>
+          <div className="mt-5 flex flex-wrap items-center gap-4">
+            <a href={`/en/tools/${tool.slug}`} className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">View details <ArrowRight className="size-4" /></a>
+            <a href={tool.website} target="_blank" rel="noreferrer noopener" className="inline-flex items-center gap-2 text-sm font-semibold text-brand hover:underline">Official website <ExternalLink className="size-4" /></a>
+          </div>
         </article>
       ))}
     </div>

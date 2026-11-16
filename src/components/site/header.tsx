@@ -15,12 +15,14 @@ const koreanNav = [
 ];
 
 const englishNav = [
-  { href: "/en/#tools", label: "Find AI Tools" },
-  { href: "/en/#categories", label: "Categories" },
-  { href: "/en/#popular", label: "Popular AI" },
-  { href: "/en/#new", label: "New AI" },
-  { href: "/en/#free", label: "Free AI" },
-  { href: "/en/#submit", label: "Submit AI" },
+  { href: "/en/tools", label: "Find AI Tools" },
+  { href: "/en/categories", label: "Categories" },
+  { href: "/en/popular", label: "Popular AI" },
+  { href: "/en/new", label: "New AI" },
+  { href: "/en/free-ai", label: "Free AI" },
+  { href: "/en/compare", label: "Compare" },
+  { href: "/en/guides", label: "Guides" },
+  { href: "/en/contact", label: "Submit AI" },
 ];
 
 export function Header() {
