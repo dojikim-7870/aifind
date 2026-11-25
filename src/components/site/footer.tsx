@@ -16,7 +16,7 @@ export function Footer() {
         <div className="mx-auto max-w-6xl px-4 py-10">
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <div className="text-lg font-extrabold">AIAtlas.kr</div>
+              <div className="text-lg font-extrabold">AIFind.kr</div>
               <p className="mt-1 text-sm text-muted-foreground">Discover, compare, and choose the right AI tools.</p>
             </div>
             <nav className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
@@ -29,7 +29,7 @@ export function Footer() {
             </nav>
           </div>
           <p className="mt-8 border-t pt-5 text-xs leading-relaxed text-muted-foreground">Information is provided for reference. Features, availability, and pricing may change. Please confirm the latest details on each provider's official website.</p>
-          <p className="mt-2 text-xs text-muted-foreground">© {new Date().getFullYear()} AIAtlas.kr</p>
+          <p className="mt-2 text-xs text-muted-foreground">© {new Date().getFullYear()} AIFind.kr</p>
         </div>
       </footer>
     );
