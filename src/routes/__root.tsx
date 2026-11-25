@@ -80,12 +80,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AIAtlas.kr | 한국인을 위한 AI 도구 검색·비교" },
+      { title: "AIfind.kr |  AI 도구 검색·비교" },
       {
         name: "description",
-        content: "한국 사용자에게 유용한 AI 도구를 검색하고 비교하세요. 무료 여부와 한국어 지원까지 한눈에.",
+        content: "사용자에게 유용한 AI 도구를 검색하고 비교하세요. 무료 여부와 한국어 지원까지 한눈에.",
       },
-      { property: "og:title", content: "AIAtlas.kr | 한국인을 위한 AI 도구 검색·비교" },
+      { property: "og:title", content: "AIfind.kr |  AI 도구 검색·비교" },
       {
         property: "og:description",
         content: "나에게 맞는 AI를 쉽게 찾다. 활용 목적별로 AI 도구를 찾고 비교하세요.",
