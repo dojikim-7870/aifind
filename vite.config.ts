@@ -6,7 +6,7 @@ export default defineConfig({
     server: { entry: "server" },
     // Keep prerendering bounded; the English landing page is included explicitly.
     prerender: {
-      enabled: true,
+      enabled: false,
       crawlLinks: false,
       routes: [
         "/", "/en/", "/tools", "/categories", "/popular", "/new", "/free-ai",
