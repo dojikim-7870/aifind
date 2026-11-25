@@ -49,7 +49,7 @@ const categories = [
 export const Route = createFileRoute("/en/")({
   head: () => ({
     meta: [
-      { title: "AIAtlas - Discover and Compare the Best AI Tools" },
+      { title: "AIfind - Discover and Compare the Best AI Tools" },
       { name: "description", content: "Discover, compare, and choose AI tools for writing, image generation, video, coding, research, and productivity. Explore free and paid AI tools." },
       { name: "robots", content: "index,follow" },
       { property: "og:title", content: "AIAtlas - Discover and Compare the Best AI Tools" },
