@@ -36,7 +36,7 @@ export function Header() {
       <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 lg:flex lg:justify-between">
         <Link to={isEnglish ? "/en/" : "/"} className="flex min-w-0 items-center gap-2">
           <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-brand text-sm font-bold text-brand-foreground">A</span>
-          <span className="truncate text-lg font-extrabold tracking-tight">AIAtlas<span className="text-brand">.kr</span></span>
+          <span className="truncate text-lg font-extrabold tracking-tight">AIFind<span className="text-brand">.kr</span></span>
         </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
